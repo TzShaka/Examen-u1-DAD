@@ -1,0 +1,31 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: hlca-estudiante-servicio
+          uri: lb://hlca-estudiante-servicio
+          predicates:
+            - Path=/estudiantes/**
+
+        - id: hlca-matricula-servicio
+          uri: lb://hlca-matricula-servicio
+          predicates:
+            - Path=/matriculas/**
+
+        - id: hlca-curso-servicio
+          uri: lb://hlca-curso-servicio
+          predicates:
+            - Path=/cursos/**
