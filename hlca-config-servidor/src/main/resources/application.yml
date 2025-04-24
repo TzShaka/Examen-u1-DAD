@@ -10,7 +10,7 @@ spring:
         git:
           uri: https://github.com/TzShaka/Examen-u1-DAD.git
           searchPaths: config-data
-          default-label: DAD
+          default-label: main
   security:
     user:
       name: howard
